@@ -21,6 +21,7 @@ namespace NhapXuatMT.UI
         private void frmPhieuNhap_Load(object sender, EventArgs e)
         {
             dgrvDsNhap.DataSource = _PHIEUNHAPRepository.GetAll();
+            dgrvDsNhap.Columns["CHITIETPHIEUNHAPs"].Visible = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -57,12 +58,11 @@ namespace NhapXuatMT.UI
 
             if (auditOrder.IDPHIEUNHAP > 0)
             {
-                _PHIEUNHAPRepository.Delete(auditOrder.IDPHIEUNHAP);
-
                 foreach (var item in _CHITIETPHIEUNHAPRepository.GetAll(auditOrder.IDPHIEUNHAP))
                 {
                     _CHITIETPHIEUNHAPRepository.Delete(item.IDCHITIETPHIEUNHAP);
                 }
+                _PHIEUNHAPRepository.Delete(auditOrder.IDPHIEUNHAP);
                 frmPhieuNhap_Load(null, null);
             }
             else
