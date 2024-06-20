@@ -10,17 +10,33 @@ namespace NhapXuatMT.IO
     public class PHIEUNHAPRepository : IPHIEUNHAPRepository
     {
         private Model1 db { get; set; }
+        private CHITIETPHIEUNHAPRepository _CHITIETPHIEUNHAPRepository { get; set; }
         public PHIEUNHAPRepository(Model1 db)
         {
             this.db = db;
+            _CHITIETPHIEUNHAPRepository = new CHITIETPHIEUNHAPRepository(this.db);
         }
         public bool Delete(int IDPHIEUNHAP)
         {
             var oldPhieuNhap = GetByID(IDPHIEUNHAP);
             if (oldPhieuNhap != null && oldPhieuNhap.IDPHIEUNHAP > 0)
             {
-                db.PHIEUNHAPs.Remove(oldPhieuNhap);
-                db.SaveChanges();
+                var transaction = db.Database.BeginTransaction();
+                try
+                {
+                    foreach (var item in _CHITIETPHIEUNHAPRepository.GetAll(oldPhieuNhap.IDPHIEUNHAP))
+                    {
+                        _CHITIETPHIEUNHAPRepository.Delete(item.IDCHITIETPHIEUNHAP);
+                    }
+                    db.PHIEUNHAPs.Remove(oldPhieuNhap);
+                    db.SaveChanges();
+
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                }                
                 return true;
             }
             return false;

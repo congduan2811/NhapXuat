@@ -58,10 +58,6 @@ namespace NhapXuatMT.UI
 
             if (auditOrder.IDPHIEUNHAP > 0)
             {
-                foreach (var item in _CHITIETPHIEUNHAPRepository.GetAll(auditOrder.IDPHIEUNHAP))
-                {
-                    _CHITIETPHIEUNHAPRepository.Delete(item.IDCHITIETPHIEUNHAP);
-                }
                 _PHIEUNHAPRepository.Delete(auditOrder.IDPHIEUNHAP);
                 frmPhieuNhap_Load(null, null);
             }
