@@ -33,23 +33,6 @@ namespace NhapXuatMT.UI
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            if (dgrvDsNhap.SelectedRows.Count > 0)
-            {
-                var IDPHIEUNHAP = Convert.ToInt32(dgrvDsNhap.SelectedRows[0].Cells["IDPHIEUNHAP"].Value);
-                var frm = new frmPhieuNhapChiTiet(IDPHIEUNHAP);
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-                    dgrvDsNhap.DataSource = _PHIEUNHAPRepository.GetAll();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Không có dữ liệu để sửa");
-            }
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dgrvDsNhap.CurrentRow == null) return;
