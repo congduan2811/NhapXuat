@@ -191,6 +191,7 @@ namespace NhapXuatMT.UI
             this.Name = "frmPhieuNhapDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmPhieuNhapDetails";
+            this.Load += new System.EventHandler(this.frmPhieuNhapDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
