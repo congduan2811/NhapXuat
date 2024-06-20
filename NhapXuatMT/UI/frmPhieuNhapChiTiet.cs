@@ -60,7 +60,7 @@ namespace NhapXuatMT.UI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            var frm = new frmPhieuNhapDetails();
+            var frm = new frmPhieuNhapDetails(IDPHIEUNHAP);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 cHITIETPHIEUNHAPs.Add(frm.cHITIETPHIEUNHAP);
@@ -80,11 +80,27 @@ namespace NhapXuatMT.UI
             phieuNhap.TENNHACUNGCAP = txtNCC.Text;
             phieuNhap.NGUOILAPPHIEU = txtNguoiLapPhieu.Text;
 
-            _PHIEUNHAPRepository.Insert(phieuNhap);
+            if(IDPHIEUNHAP > 0)
+            {
+                phieuNhap.IDPHIEUNHAP = IDPHIEUNHAP;
+                _PHIEUNHAPRepository.Edit(phieuNhap);
+            }
+            else
+            {
+                _PHIEUNHAPRepository.Insert(phieuNhap);
+            }
+            
             foreach (var item in cHITIETPHIEUNHAPs)
             {
                 item.IDPHIEUNHAP = phieuNhap.IDPHIEUNHAP;
-                _CHITIETPHIEUNHAPRepository.Insert(item);
+                if(item.IDCHITIETPHIEUNHAP > 0)
+                {
+                    _CHITIETPHIEUNHAPRepository.Edit(item);
+                }
+                else
+                {
+                    _CHITIETPHIEUNHAPRepository.Insert(item);
+                }
             }
 
             this.DialogResult = DialogResult.OK;

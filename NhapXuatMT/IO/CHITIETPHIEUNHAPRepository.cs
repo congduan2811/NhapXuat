@@ -44,7 +44,7 @@ namespace NhapXuatMT.IO
 
         public List<CHITIETPHIEUNHAP> GetAll(int IDPHIEUNHAP)
         {
-            return db.CHITIETPHIEUNHAPs.ToList();
+            return db.CHITIETPHIEUNHAPs.Where(x=>x.IDPHIEUNHAP == IDPHIEUNHAP).ToList();
         }
 
         public CHITIETPHIEUNHAP GetByID(int IDCHITIETPHIEUNHAP)

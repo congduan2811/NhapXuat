@@ -20,6 +20,12 @@ namespace NhapXuatMT.UI
             cHITIETPHIEUNHAP = new CHITIETPHIEUNHAP();
         }
 
+        public frmPhieuNhapDetails(int IDPHIEUNHAP)
+        {
+            InitializeComponent();
+            cHITIETPHIEUNHAP = new CHITIETPHIEUNHAP() {IDPHIEUNHAP = IDPHIEUNHAP };
+        }
+
         private void btnThemCTPN_Click(object sender, EventArgs e)
         {
             cHITIETPHIEUNHAP.TENSANPHAM = txtTenSP.Text;
@@ -29,6 +35,11 @@ namespace NhapXuatMT.UI
             cHITIETPHIEUNHAP.SOLUONGTHUCTE = Convert.ToInt32(txtSLTT.Text);
 
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void frmPhieuNhapDetails_Load(object sender, EventArgs e)
+        {
+            txtIDCTPN.Text = (cHITIETPHIEUNHAP.IDPHIEUNHAP??0).ToString();
         }
     }
 }
