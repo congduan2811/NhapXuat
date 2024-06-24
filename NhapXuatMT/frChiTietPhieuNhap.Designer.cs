@@ -30,35 +30,35 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtMaPhieuNhap = new System.Windows.Forms.Label();
-            this.txtIDPhieuNhap = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt = new System.Windows.Forms.Label();
-            this.txtNVgiao = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNCC = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.dtpkNgayDuTru = new System.Windows.Forms.DateTimePicker();
+            this.dtpkNgayNhap = new System.Windows.Forms.DateTimePicker();
+            this.btnThem = new System.Windows.Forms.Button();
             this.txtNguoiLapPhieu = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtNCC = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNVgiao = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIDPhieuNhap = new System.Windows.Forms.TextBox();
+            this.txtMaPhieuNhap = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.dgrvChiTietPhieuNhap = new System.Windows.Forms.DataGridView();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.nHAPXUATMAYTINHDataSet = new NhapXuatMT.NHAPXUATMAYTINHDataSet();
-            this.cHITIETPHIEUNHAPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cHITIETPHIEUNHAPTableAdapter = new NhapXuatMT.NHAPXUATMAYTINHDataSetTableAdapters.CHITIETPHIEUNHAPTableAdapter();
             this.iDPHIEUNHAPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tENSANPHAMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDSANPHAMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dONVITINHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sOLUONGDUTRUDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sOLUONGTHUCTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtpkNgayNhap = new System.Windows.Forms.DateTimePicker();
-            this.dtpkNgayDuTru = new System.Windows.Forms.DateTimePicker();
+            this.cHITIETPHIEUNHAPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nHAPXUATMAYTINHDataSet = new NhapXuatMT.NHAPXUATMAYTINHDataSet();
+            this.cHITIETPHIEUNHAPTableAdapter = new NhapXuatMT.NHAPXUATMAYTINHDataSetTableAdapters.CHITIETPHIEUNHAPTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvChiTietPhieuNhap)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHAPXUATMAYTINHDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETPHIEUNHAPBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHAPXUATMAYTINHDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,63 +82,45 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panel2
+            // dtpkNgayDuTru
             // 
-            this.panel2.Controls.Add(this.dgrvChiTietPhieuNhap);
-            this.panel2.Location = new System.Drawing.Point(2, 122);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(797, 236);
-            this.panel2.TabIndex = 1;
+            this.dtpkNgayDuTru.Location = new System.Drawing.Point(139, 73);
+            this.dtpkNgayDuTru.Name = "dtpkNgayDuTru";
+            this.dtpkNgayDuTru.Size = new System.Drawing.Size(162, 22);
+            this.dtpkNgayDuTru.TabIndex = 14;
             // 
-            // txtMaPhieuNhap
+            // dtpkNgayNhap
             // 
-            this.txtMaPhieuNhap.AutoSize = true;
-            this.txtMaPhieuNhap.Location = new System.Drawing.Point(27, 14);
-            this.txtMaPhieuNhap.Name = "txtMaPhieuNhap";
-            this.txtMaPhieuNhap.Size = new System.Drawing.Size(100, 17);
-            this.txtMaPhieuNhap.TabIndex = 0;
-            this.txtMaPhieuNhap.Text = "ID phiếu nhập:";
+            this.dtpkNgayNhap.Location = new System.Drawing.Point(139, 40);
+            this.dtpkNgayNhap.Name = "dtpkNgayNhap";
+            this.dtpkNgayNhap.Size = new System.Drawing.Size(162, 22);
+            this.dtpkNgayNhap.TabIndex = 13;
             // 
-            // txtIDPhieuNhap
+            // btnThem
             // 
-            this.txtIDPhieuNhap.Location = new System.Drawing.Point(139, 11);
-            this.txtIDPhieuNhap.Name = "txtIDPhieuNhap";
-            this.txtIDPhieuNhap.Size = new System.Drawing.Size(162, 22);
-            this.txtIDPhieuNhap.TabIndex = 1;
+            this.btnThem.Location = new System.Drawing.Point(661, 35);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(77, 31);
+            this.btnThem.TabIndex = 12;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // label1
+            // txtNguoiLapPhieu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Ngày Nhập:";
+            this.txtNguoiLapPhieu.Location = new System.Drawing.Point(478, 70);
+            this.txtNguoiLapPhieu.Name = "txtNguoiLapPhieu";
+            this.txtNguoiLapPhieu.Size = new System.Drawing.Size(162, 22);
+            this.txtNguoiLapPhieu.TabIndex = 11;
             // 
-            // txt
+            // label4
             // 
-            this.txt.AutoSize = true;
-            this.txt.Location = new System.Drawing.Point(27, 70);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(86, 17);
-            this.txt.TabIndex = 4;
-            this.txt.Text = "Ngày dự trù:";
-            // 
-            // txtNVgiao
-            // 
-            this.txtNVgiao.Location = new System.Drawing.Point(478, 14);
-            this.txtNVgiao.Name = "txtNVgiao";
-            this.txtNVgiao.Size = new System.Drawing.Size(162, 22);
-            this.txtNVgiao.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(338, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Tên nhân viên giao:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(338, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(111, 17);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Người lập phiếu:";
             // 
             // txtNCC
             // 
@@ -156,21 +138,63 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Tên nhà cung cấp:";
             // 
-            // txtNguoiLapPhieu
+            // txtNVgiao
             // 
-            this.txtNguoiLapPhieu.Location = new System.Drawing.Point(478, 70);
-            this.txtNguoiLapPhieu.Name = "txtNguoiLapPhieu";
-            this.txtNguoiLapPhieu.Size = new System.Drawing.Size(162, 22);
-            this.txtNguoiLapPhieu.TabIndex = 11;
+            this.txtNVgiao.Location = new System.Drawing.Point(478, 14);
+            this.txtNVgiao.Name = "txtNVgiao";
+            this.txtNVgiao.Size = new System.Drawing.Size(162, 22);
+            this.txtNVgiao.TabIndex = 7;
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(338, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 17);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Người lập phiếu:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(338, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Tên nhân viên giao:";
+            // 
+            // txt
+            // 
+            this.txt.AutoSize = true;
+            this.txt.Location = new System.Drawing.Point(27, 70);
+            this.txt.Name = "txt";
+            this.txt.Size = new System.Drawing.Size(86, 17);
+            this.txt.TabIndex = 4;
+            this.txt.Text = "Ngày dự trù:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Ngày Nhập:";
+            // 
+            // txtIDPhieuNhap
+            // 
+            this.txtIDPhieuNhap.Location = new System.Drawing.Point(139, 11);
+            this.txtIDPhieuNhap.Name = "txtIDPhieuNhap";
+            this.txtIDPhieuNhap.Size = new System.Drawing.Size(162, 22);
+            this.txtIDPhieuNhap.TabIndex = 1;
+            // 
+            // txtMaPhieuNhap
+            // 
+            this.txtMaPhieuNhap.AutoSize = true;
+            this.txtMaPhieuNhap.Location = new System.Drawing.Point(27, 14);
+            this.txtMaPhieuNhap.Name = "txtMaPhieuNhap";
+            this.txtMaPhieuNhap.Size = new System.Drawing.Size(100, 17);
+            this.txtMaPhieuNhap.TabIndex = 0;
+            this.txtMaPhieuNhap.Text = "ID phiếu nhập:";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgrvChiTietPhieuNhap);
+            this.panel2.Location = new System.Drawing.Point(2, 122);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(797, 236);
+            this.panel2.TabIndex = 1;
             // 
             // dgrvChiTietPhieuNhap
             // 
@@ -190,30 +214,7 @@
             this.dgrvChiTietPhieuNhap.RowTemplate.Height = 24;
             this.dgrvChiTietPhieuNhap.Size = new System.Drawing.Size(794, 230);
             this.dgrvChiTietPhieuNhap.TabIndex = 0;
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(661, 35);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(77, 31);
-            this.btnThem.TabIndex = 12;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // nHAPXUATMAYTINHDataSet
-            // 
-            this.nHAPXUATMAYTINHDataSet.DataSetName = "NHAPXUATMAYTINHDataSet";
-            this.nHAPXUATMAYTINHDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cHITIETPHIEUNHAPBindingSource
-            // 
-            this.cHITIETPHIEUNHAPBindingSource.DataMember = "CHITIETPHIEUNHAP";
-            this.cHITIETPHIEUNHAPBindingSource.DataSource = this.nHAPXUATMAYTINHDataSet;
-            // 
-            // cHITIETPHIEUNHAPTableAdapter
-            // 
-            this.cHITIETPHIEUNHAPTableAdapter.ClearBeforeFill = true;
+            this.dgrvChiTietPhieuNhap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrvChiTietPhieuNhap_CellContentClick);
             // 
             // iDPHIEUNHAPDataGridViewTextBoxColumn
             // 
@@ -251,19 +252,19 @@
             this.sOLUONGTHUCTEDataGridViewTextBoxColumn.HeaderText = "SOLUONGTHUCTE";
             this.sOLUONGTHUCTEDataGridViewTextBoxColumn.Name = "sOLUONGTHUCTEDataGridViewTextBoxColumn";
             // 
-            // dtpkNgayNhap
+            // cHITIETPHIEUNHAPBindingSource
             // 
-            this.dtpkNgayNhap.Location = new System.Drawing.Point(139, 40);
-            this.dtpkNgayNhap.Name = "dtpkNgayNhap";
-            this.dtpkNgayNhap.Size = new System.Drawing.Size(162, 22);
-            this.dtpkNgayNhap.TabIndex = 13;
+            this.cHITIETPHIEUNHAPBindingSource.DataMember = "CHITIETPHIEUNHAP";
+            this.cHITIETPHIEUNHAPBindingSource.DataSource = this.nHAPXUATMAYTINHDataSet;
             // 
-            // dtpkNgayDuTru
+            // nHAPXUATMAYTINHDataSet
             // 
-            this.dtpkNgayDuTru.Location = new System.Drawing.Point(139, 73);
-            this.dtpkNgayDuTru.Name = "dtpkNgayDuTru";
-            this.dtpkNgayDuTru.Size = new System.Drawing.Size(162, 22);
-            this.dtpkNgayDuTru.TabIndex = 14;
+            this.nHAPXUATMAYTINHDataSet.DataSetName = "NHAPXUATMAYTINHDataSet";
+            this.nHAPXUATMAYTINHDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cHITIETPHIEUNHAPTableAdapter
+            // 
+            this.cHITIETPHIEUNHAPTableAdapter.ClearBeforeFill = true;
             // 
             // frChiTietPhieuNhap
             // 
@@ -279,8 +280,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgrvChiTietPhieuNhap)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHAPXUATMAYTINHDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETPHIEUNHAPBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHAPXUATMAYTINHDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

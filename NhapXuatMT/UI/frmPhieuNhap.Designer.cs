@@ -43,13 +43,14 @@ namespace NhapXuatMT.UI
             this.dgrvDsNhap.AllowUserToDeleteRows = false;
             this.dgrvDsNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrvDsNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgrvDsNhap.Location = new System.Drawing.Point(0, 41);
-            this.dgrvDsNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.dgrvDsNhap.Location = new System.Drawing.Point(0, 50);
+            this.dgrvDsNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrvDsNhap.Name = "dgrvDsNhap";
             this.dgrvDsNhap.ReadOnly = true;
             this.dgrvDsNhap.RowTemplate.Height = 24;
-            this.dgrvDsNhap.Size = new System.Drawing.Size(991, 195);
+            this.dgrvDsNhap.Size = new System.Drawing.Size(1321, 240);
             this.dgrvDsNhap.TabIndex = 0;
+            this.dgrvDsNhap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrvDsNhap_CellContentClick);
             this.dgrvDsNhap.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgrvDsNhap_MouseDoubleClick);
             // 
             // panel1
@@ -58,17 +59,18 @@ namespace NhapXuatMT.UI
             this.panel1.Controls.Add(this.btnThem);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(991, 41);
+            this.panel1.Size = new System.Drawing.Size(1321, 50);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(271, 6);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoa.Location = new System.Drawing.Point(361, 7);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(57, 28);
+            this.btnXoa.Size = new System.Drawing.Size(76, 34);
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -76,10 +78,10 @@ namespace NhapXuatMT.UI
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(200, 6);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThem.Location = new System.Drawing.Point(267, 7);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(57, 28);
+            this.btnThem.Size = new System.Drawing.Size(76, 34);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -87,11 +89,12 @@ namespace NhapXuatMT.UI
             // 
             // frmPhieuNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 236);
+            this.ClientSize = new System.Drawing.Size(1321, 290);
             this.Controls.Add(this.dgrvDsNhap);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmPhieuNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPhieuNhap";

@@ -99,5 +99,10 @@ namespace NhapXuatMT
         {
 
         }
+
+        private void dgrvChiTietPhieuNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

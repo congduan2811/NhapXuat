@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.dgrvChiTietPhieuNhap = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtIDCTPN = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtTenSP = new System.Windows.Forms.TextBox();
             this.txtIDSP = new System.Windows.Forms.TextBox();
             this.btnThemCTPN = new System.Windows.Forms.Button();
@@ -47,8 +49,6 @@
             this.nHAPXUATMAYTINHDataSet1 = new NhapXuatMT.NHAPXUATMAYTINHDataSet1();
             this.cHITIETPHIEUNHAPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cHITIETPHIEUNHAPTableAdapter = new NhapXuatMT.NHAPXUATMAYTINHDataSet1TableAdapters.CHITIETPHIEUNHAPTableAdapter();
-            this.txtIDCTPN = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.nHAPXUATMAYTINHDataSet2 = new NhapXuatMT.NHAPXUATMAYTINHDataSet2();
             this.cHITIETPHIEUNHAPBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cHITIETPHIEUNHAPTableAdapter1 = new NhapXuatMT.NHAPXUATMAYTINHDataSet2TableAdapters.CHITIETPHIEUNHAPTableAdapter();
@@ -69,6 +69,7 @@
             this.dgrvChiTietPhieuNhap.RowTemplate.Height = 24;
             this.dgrvChiTietPhieuNhap.Size = new System.Drawing.Size(779, 230);
             this.dgrvChiTietPhieuNhap.TabIndex = 16;
+            this.dgrvChiTietPhieuNhap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrvChiTietPhieuNhap_CellContentClick);
             // 
             // panel3
             // 
@@ -91,6 +92,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(776, 149);
             this.panel3.TabIndex = 17;
+            // 
+            // txtIDCTPN
+            // 
+            this.txtIDCTPN.Location = new System.Drawing.Point(137, 17);
+            this.txtIDCTPN.Name = "txtIDCTPN";
+            this.txtIDCTPN.Size = new System.Drawing.Size(162, 22);
+            this.txtIDCTPN.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 17);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "ID phiếu nhập:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtTenSP
             // 
@@ -211,23 +229,6 @@
             // cHITIETPHIEUNHAPTableAdapter
             // 
             this.cHITIETPHIEUNHAPTableAdapter.ClearBeforeFill = true;
-            // 
-            // txtIDCTPN
-            // 
-            this.txtIDCTPN.Location = new System.Drawing.Point(137, 17);
-            this.txtIDCTPN.Name = "txtIDCTPN";
-            this.txtIDCTPN.Size = new System.Drawing.Size(162, 22);
-            this.txtIDCTPN.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 17);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "ID phiếu nhập:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // nHAPXUATMAYTINHDataSet2
             // 

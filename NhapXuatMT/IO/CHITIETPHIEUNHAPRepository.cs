@@ -9,11 +9,19 @@ namespace NhapXuatMT.IO
 {
     public class CHITIETPHIEUNHAPRepository : ICHITIETPHIEUNHAPRepository
     {
+        private string connectionString;
+
         private Model1 db { get; set; }
         public CHITIETPHIEUNHAPRepository(Model1 db)
         {
             this.db = db;
         }
+
+        public CHITIETPHIEUNHAPRepository(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public bool Delete(int IDCHITIETPHIEUNHAP)
         {
             var oldPhieuNhap = GetByID(IDCHITIETPHIEUNHAP);
