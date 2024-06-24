@@ -5,12 +5,14 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
+
 namespace NhapXuatMT.UI
 {
     public partial class frmPhieuNhap : Form
     {
 
-        private string _connectionString = @"Data Source= LAPTOP-LVS9DHPM\SQLEXPRESS;Initial Catalog=NHAPXUATMAYTINH;Integrated Security=True";
+        private string _connectionString = ConfigurationManager.ConnectionStrings["Model1"].ToString();
         private PHIEUNHAPRepository _PHIEUNHAPRepository;
         private frmPhieuNhapChiTiet frmPhieuNhapChiTiet;
         //private PHIEUNHAPRepository _PHIEUNHAPRepository { get; set; }
@@ -44,6 +46,7 @@ namespace NhapXuatMT.UI
                     DataTable data = new DataTable();
                     adapter.Fill(data);
                     dgrvDsNhap.DataSource = data;
+                    if(dgrvDsNhap.Columns["CHITIETPHIEUNHAPs"] != null)
                     dgrvDsNhap.Columns["CHITIETPHIEUNHAPs"].Visible = false;
                 }
             }
@@ -57,7 +60,7 @@ namespace NhapXuatMT.UI
             using (var frmChiTietPhieuNhap = new frmPhieuNhapChiTiet())
 
             {
-                if (frmPhieuNhapChiTiet.ShowDialog() == DialogResult.OK)
+                if (frmChiTietPhieuNhap.ShowDialog() == DialogResult.OK)
                 {
                     LoadPurchaseOrdersFromDatabase();
                 }

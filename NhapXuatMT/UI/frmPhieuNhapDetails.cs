@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -15,7 +16,7 @@ namespace NhapXuatMT.UI
     public partial class frmPhieuNhapDetails : Form
     {
         public CHITIETPHIEUNHAP cHITIETPHIEUNHAP { get; set; }
-        private string connectionString = @"Data Source= LAPTOP-LVS9DHPM\SQLEXPRESS;Initial Catalog=NHAPXUATMAYTINH;Integrated Security=True";
+        private string connectionString = ConfigurationManager.ConnectionStrings["Model1"].ToString();
         //public CHITIETPHIEUNHAP cHITIETPHIEUNHAP { get; set; }
         public frmPhieuNhapDetails()
         {
