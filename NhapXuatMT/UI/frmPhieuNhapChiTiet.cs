@@ -43,7 +43,7 @@ namespace NhapXuatMT.UI
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("SELECT * FROM PHIEUNHAP WHERE IDPHIEUNHAP = @IDPHIEUNHAP", connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM PHIEUNHAP  WHERE IDPHIEUNHAP = @IDPHIEUNHAP", connection))
                 {
                     command.Parameters.AddWithValue("@IDPHIEUNHAP", IDPHIEUNHAP);
 
@@ -55,6 +55,11 @@ namespace NhapXuatMT.UI
 
                             phieuNhap.IDPHIEUNHAP = (int)reader["IDPHIEUNHAP"];
                             txtIDPhieuNhap.Text = phieuNhap.IDPHIEUNHAP.ToString();
+                            dtpkNgayNhap.Value = phieuNhap.NGAYNHAP ?? DateTime.Now;
+                            dtpkNgayDuTru.Value = phieuNhap.NGAYDUTRU ?? DateTime.Now;
+                            txtNVgiao.Text = phieuNhap.TENNHANVIENGIAO;
+                            txtNCC.Text = phieuNhap.TENNHACUNGCAP;
+                            txtNguoiLapPhieu.Text = phieuNhap.NGUOILAPPHIEU;
                         }
                     }
                 }
@@ -72,14 +77,23 @@ namespace NhapXuatMT.UI
                             while (reader.Read())
                             {
                                 CHITIETPHIEUNHAP chitietPhieuNhap = new CHITIETPHIEUNHAP();
-
                                 chitietPhieuNhap.IDCHITIETPHIEUNHAP = (int)reader["IDCHITIETPHIEUNHAP"];
                                 chitietPhieuNhap.IDPHIEUNHAP = (int)reader["IDPHIEUNHAP"];
-                                // Set other properties of chitietPhieuNhap
+                                chitietPhieuNhap.TENSANPHAM = (string)reader["TENSANPHAM"];
+                                chitietPhieuNhap.IDSANPHAM = (int)reader["IDSANPHAM"];
+                                chitietPhieuNhap.DONVITINH = (string)reader["DONVITINH"];
+                                chitietPhieuNhap.SOLUONGDUTRU = (int)reader["SOLUONGDUTRU"];
+                                chitietPhieuNhap.SOLUONGTHUCTE = (int)reader["SOLUONGTHUCTE"];
 
                                 cHITIETPHIEUNHAPs.Add(chitietPhieuNhap);
+                                //chitietPhieuNhap.IDCHITIETPHIEUNHAP = (int)reader["IDCHITIETPHIEUNHAP"];
+                                //chitietPhieuNhap.IDPHIEUNHAP = (int)reader["IDPHIEUNHAP"];
+                                //// Set other properties of chitietPhieuNhap
+
+                                //cHITIETPHIEUNHAPs.Add(chitietPhieuNhap);
                             }
                         }
+
                     }
                 }
                 else
@@ -87,6 +101,7 @@ namespace NhapXuatMT.UI
             }
 
             dgrvChiTietPhieuNhap.DataSource = cHITIETPHIEUNHAPs;
+
             //PHIEUNHAP phieuNhap;
             //if (IDPHIEUNHAP > 0)
             //{
@@ -202,6 +217,7 @@ namespace NhapXuatMT.UI
                             command.Parameters.AddWithValue("@SOLUONGTHUCTE", item.SOLUONGTHUCTE);
                             command.Parameters.AddWithValue("@IDCHITIETPHIEUNHAP", item.IDCHITIETPHIEUNHAP);
                             command.ExecuteNonQuery();
+                            
                         }
                     }
                     else
@@ -273,6 +289,11 @@ namespace NhapXuatMT.UI
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtNVgiao_TextChanged(object sender, EventArgs e)
         {
 
         }

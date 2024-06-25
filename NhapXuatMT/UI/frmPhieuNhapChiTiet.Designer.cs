@@ -121,6 +121,7 @@ namespace NhapXuatMT.UI
             this.txtNVgiao.Name = "txtNVgiao";
             this.txtNVgiao.Size = new System.Drawing.Size(161, 22);
             this.txtNVgiao.TabIndex = 7;
+            this.txtNVgiao.TextChanged += new System.EventHandler(this.txtNVgiao_TextChanged);
             // 
             // txt
             // 

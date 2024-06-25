@@ -88,7 +88,7 @@ namespace NhapXuatMT.UI
                     command.Parameters.AddWithValue("@PurchaseOrderId", purchaseOrderId);
                     command.ExecuteNonQuery();
                 }
-                dgrvDsNhap.DataSource = _PHIEUNHAPRepository;
+                dgrvDsNhap.DataSource = _PHIEUNHAPRepository.GetAll();
             }
             catch (Exception ex)
             {
