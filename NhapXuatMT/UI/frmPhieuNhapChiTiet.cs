@@ -54,12 +54,11 @@ namespace NhapXuatMT.UI
                             PHIEUNHAP phieuNhap = new PHIEUNHAP();
 
                             phieuNhap.IDPHIEUNHAP = (int)reader["IDPHIEUNHAP"];
-                            txtIDPhieuNhap.Text = phieuNhap.IDPHIEUNHAP.ToString();
-                            dtpkNgayNhap.Value = phieuNhap.NGAYNHAP ?? DateTime.Now;
-                            dtpkNgayDuTru.Value = phieuNhap.NGAYDUTRU ?? DateTime.Now;
-                            txtNVgiao.Text = phieuNhap.TENNHANVIENGIAO;
-                            txtNCC.Text = phieuNhap.TENNHACUNGCAP;
-                            txtNguoiLapPhieu.Text = phieuNhap.NGUOILAPPHIEU;
+                            dtpkNgayNhap.Value = (DateTime)reader["NGAYNHAP"];
+                            dtpkNgayDuTru.Value = (DateTime)reader["NGAYDUTRU"];
+                            txtNVgiao.Text = (string)reader["TENNHANVIENGIAO"];
+                            txtNCC.Text = (string)reader["TENNHACUNGCAP"];
+                            txtNguoiLapPhieu.Text = (string)reader["NGUOILAPPHIEU"];
                         }
                     }
                 }
