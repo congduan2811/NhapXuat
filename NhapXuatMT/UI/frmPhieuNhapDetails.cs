@@ -40,41 +40,41 @@ namespace NhapXuatMT.UI
             cHITIETPHIEUNHAP.SOLUONGTHUCTE = Convert.ToInt32(txtSLTT.Text);
 
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //    connection.Open();
 
-                if (cHITIETPHIEUNHAP.IDCHITIETPHIEUNHAP > 0)
-                {
-                    using (SqlCommand command = new SqlCommand("UPDATE CHITIETPHIEUNHAP SET IDPHIEUNHAP=@IDPHIEUNHAP, TENSANPHAM = @TENSANPHAM, IDSANPHAM = @IDSANPHAM, DONVITINH = @DONVITINH, SOLUONGDUTRU = @SOLUONGDUTRU, SOLUONGTHUCTE = @SOLUONGTHUCTE WHERE IDCHITIETPHIEUNHAP = @IDCHITIETPHIEUNHAP", connection))
-                    {
-                        //command.Parameters.AddWithValue("@IDCHITIETPHIEUNHAP", cHITIETPHIEUNHAP.IDCHITIETPHIEUNHAP);
-                        command.Parameters.AddWithValue("@IDPHIEUNHAP", cHITIETPHIEUNHAP.IDPHIEUNHAP);
-                        command.Parameters.AddWithValue("@TENSANPHAM", cHITIETPHIEUNHAP.TENSANPHAM);
-                        command.Parameters.AddWithValue("@IDSANPHAM", cHITIETPHIEUNHAP.IDSANPHAM);
-                        command.Parameters.AddWithValue("@DONVITINH", cHITIETPHIEUNHAP.DONVITINH);
-                        command.Parameters.AddWithValue("@SOLUONGDUTRU", cHITIETPHIEUNHAP.SOLUONGDUTRU);
-                        command.Parameters.AddWithValue("@SOLUONGTHUCTE", cHITIETPHIEUNHAP.SOLUONGTHUCTE);
+            //    if (cHITIETPHIEUNHAP.IDCHITIETPHIEUNHAP > 0)
+            //    {
+                //    using (SqlCommand command = new SqlCommand(" CHITIETPHIEUNHAP SET IDPHIEUNHAP=@IDPHIEUNHAP, TENSANPHAM = @TENSANPHAM, IDSANPHAM = @IDSANPHAM, DONVITINH = @DONVITINH, SOLUONGDUTRU = @SOLUONGDUTRU, SOLUONGTHUCTE = @SOLUONGTHUCTE WHERE IDCHITIETPHIEUNHAP = @IDCHITIETPHIEUNHAP", connection))
+                //    {
+                //        //command.Parameters.AddWithValue("@IDCHITIETPHIEUNHAP", cHITIETPHIEUNHAP.IDCHITIETPHIEUNHAP);
+                //        command.Parameters.AddWithValue("@IDPHIEUNHAP", cHITIETPHIEUNHAP.IDPHIEUNHAP);
+                //        command.Parameters.AddWithValue("@TENSANPHAM", cHITIETPHIEUNHAP.TENSANPHAM);
+                //        command.Parameters.AddWithValue("@IDSANPHAM", cHITIETPHIEUNHAP.IDSANPHAM);
+                //        command.Parameters.AddWithValue("@DONVITINH", cHITIETPHIEUNHAP.DONVITINH);
+                //        command.Parameters.AddWithValue("@SOLUONGDUTRU", cHITIETPHIEUNHAP.SOLUONGDUTRU);
+                //        command.Parameters.AddWithValue("@SOLUONGTHUCTE", cHITIETPHIEUNHAP.SOLUONGTHUCTE);
 
-                        command.ExecuteNonQuery();
-                    }
-                }
-                else
-                {
-                    using (SqlCommand command = new SqlCommand("INSERT INTO CHITIETPHIEUNHAP (IDPHIEUNHAP,TENSANPHAM, IDSANPHAM, DONVITINH, SOLUONGDUTRU, SOLUONGTHUCTE) VALUES (@IDPHIEUNHAP,@TENSANPHAM, @IDSANPHAM, @DONVITINH, @SOLUONGDUTRU, @SOLUONGTHUCTE)", connection))
-                    {
+                //        command.ExecuteNonQuery();
+                //    }
+                //}
+                //else
+                //{
+            //        using (SqlCommand command = new SqlCommand("INSERT INTO CHITIETPHIEUNHAP (IDPHIEUNHAP,TENSANPHAM, IDSANPHAM, DONVITINH, SOLUONGDUTRU, SOLUONGTHUCTE) VALUES (@IDPHIEUNHAP,@TENSANPHAM, @IDSANPHAM, @DONVITINH, @SOLUONGDUTRU, @SOLUONGTHUCTE)", connection))
+            //        {
 
-                        command.Parameters.AddWithValue("@IDPHIEUNHAP", cHITIETPHIEUNHAP.IDPHIEUNHAP);
-                        command.Parameters.AddWithValue("@TENSANPHAM", cHITIETPHIEUNHAP.TENSANPHAM);
-                        command.Parameters.AddWithValue("@IDSANPHAM", cHITIETPHIEUNHAP.IDSANPHAM);
-                        command.Parameters.AddWithValue("@DONVITINH", cHITIETPHIEUNHAP.DONVITINH);
-                        command.Parameters.AddWithValue("@SOLUONGDUTRU", cHITIETPHIEUNHAP.SOLUONGDUTRU);
-                        command.Parameters.AddWithValue("@SOLUONGTHUCTE", cHITIETPHIEUNHAP.SOLUONGTHUCTE);
+            //            command.Parameters.AddWithValue("@IDPHIEUNHAP", cHITIETPHIEUNHAP.IDPHIEUNHAP);
+            //            command.Parameters.AddWithValue("@TENSANPHAM", cHITIETPHIEUNHAP.TENSANPHAM);
+            //            command.Parameters.AddWithValue("@IDSANPHAM", cHITIETPHIEUNHAP.IDSANPHAM);
+            //            command.Parameters.AddWithValue("@DONVITINH", cHITIETPHIEUNHAP.DONVITINH);
+            //            command.Parameters.AddWithValue("@SOLUONGDUTRU", cHITIETPHIEUNHAP.SOLUONGDUTRU);
+            //            command.Parameters.AddWithValue("@SOLUONGTHUCTE", cHITIETPHIEUNHAP.SOLUONGTHUCTE);
 
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
+            //            command.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
 
             this.DialogResult = DialogResult.OK;
 
