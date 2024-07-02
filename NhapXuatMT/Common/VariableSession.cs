@@ -1,9 +1,5 @@
 ﻿using NhapXuatMT.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 
 namespace NhapXuatMT.Common
 {
@@ -14,11 +10,19 @@ namespace NhapXuatMT.Common
         {
             get
             {
-                if(_db == null)
+                if (_db == null)
                 {
                     _db = new Model1();
                 }
                 return _db;
+            }
+        }
+
+        public static string ConnectString
+        {
+            get
+            {
+                return ConfigurationManager.ConnectionStrings["Model1"].ToString();
             }
         }
     }

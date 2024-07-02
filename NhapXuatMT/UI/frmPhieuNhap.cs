@@ -8,13 +8,13 @@ namespace NhapXuatMT.UI
 {
     public partial class frmPhieuNhap : Form
     {
-        private PHIEUNHAPRepository _PHIEUNHAPRepository { get; set; }
-        private CHITIETPHIEUNHAPRepository _CHITIETPHIEUNHAPRepository { get; set; }
+        private IPHIEUNHAPRepository _PHIEUNHAPRepository { get; set; }
+        private ICHITIETPHIEUNHAPRepository _CHITIETPHIEUNHAPRepository { get; set; }
 
         public frmPhieuNhap()
         {
-            _PHIEUNHAPRepository = new PHIEUNHAPRepository(VariableSession.db);
-            _CHITIETPHIEUNHAPRepository = new CHITIETPHIEUNHAPRepository(VariableSession.db);
+            _PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.ConnectString);
+            _CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
             InitializeComponent();
         }
 

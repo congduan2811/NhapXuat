@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -86,6 +87,8 @@
     <Compile Include="IO\ICHITIETPHIEUNHAPRepository.cs" />
     <Compile Include="IO\IPHIEUNHAPRepository.cs" />
     <Compile Include="IO\PHIEUNHAPRepository.cs" />
+    <Compile Include="IO\SQLCHITIETPHIEUNHAPRepository.cs" />
+    <Compile Include="IO\SQLPHIEUNHAPRepository.cs" />
     <Compile Include="NHAPXUATMAYTINHDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -10,22 +10,22 @@ namespace NhapXuatMT.UI
     public partial class frmPhieuNhapChiTiet : Form
     {
         private int IDPHIEUNHAP { get; set; }
-        private PHIEUNHAPRepository _PHIEUNHAPRepository { get; set; }
-        private CHITIETPHIEUNHAPRepository _CHITIETPHIEUNHAPRepository { get; set; }
+        private IPHIEUNHAPRepository _PHIEUNHAPRepository { get; set; }
+        private ICHITIETPHIEUNHAPRepository _CHITIETPHIEUNHAPRepository { get; set; }
         private List<CHITIETPHIEUNHAP> cHITIETPHIEUNHAPs { get; set; }
         public frmPhieuNhapChiTiet()
         {
             InitializeComponent();
-             _PHIEUNHAPRepository = new PHIEUNHAPRepository(VariableSession.db);
-            _CHITIETPHIEUNHAPRepository = new CHITIETPHIEUNHAPRepository(VariableSession.db);
+             _PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.ConnectString);
+            _CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
         }
 
         public frmPhieuNhapChiTiet(int IDPHIEUNHAP)
         {
             InitializeComponent();
             this.IDPHIEUNHAP = IDPHIEUNHAP;
-            _PHIEUNHAPRepository = new PHIEUNHAPRepository(VariableSession.db);
-            _CHITIETPHIEUNHAPRepository = new CHITIETPHIEUNHAPRepository(VariableSession.db);
+            _PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.ConnectString);
+            _CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
         }
 
         private void frmPhieuNhapChiTiet_Load(object sender, EventArgs e)
