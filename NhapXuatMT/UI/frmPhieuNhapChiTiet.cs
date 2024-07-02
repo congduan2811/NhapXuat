@@ -16,16 +16,16 @@ namespace NhapXuatMT.UI
         public frmPhieuNhapChiTiet()
         {
             InitializeComponent();
-             _PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.ConnectString);
-            _CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
+             _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
+            _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
         }
 
         public frmPhieuNhapChiTiet(int IDPHIEUNHAP)
         {
             InitializeComponent();
             this.IDPHIEUNHAP = IDPHIEUNHAP;
-            _PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.ConnectString);
-            _CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
+            _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
+            _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
         }
 
         private void frmPhieuNhapChiTiet_Load(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using NhapXuatMT.Data;
 using System.Configuration;
+using System.IO;
 
 namespace NhapXuatMT.Common
 {
@@ -23,6 +24,13 @@ namespace NhapXuatMT.Common
             get
             {
                 return ConfigurationManager.ConnectionStrings["Model1"].ToString();
+            }
+        }
+        public static string Root
+        {
+            get
+            {
+                return Path.Combine(Directory.GetCurrentDirectory(), "CSV"); 
             }
         }
     }

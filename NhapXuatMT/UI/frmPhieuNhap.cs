@@ -13,8 +13,8 @@ namespace NhapXuatMT.UI
 
         public frmPhieuNhap()
         {
-            _PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.ConnectString);
-            _CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
+            _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
+            _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
             InitializeComponent();
         }
 
