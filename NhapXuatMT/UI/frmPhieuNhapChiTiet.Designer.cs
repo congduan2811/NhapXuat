@@ -32,9 +32,7 @@ namespace NhapXuatMT.UI
             this.dtpkNgayDuTru = new System.Windows.Forms.DateTimePicker();
             this.dtpkNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.btnThem = new System.Windows.Forms.Button();
-            this.txtNguoiLapPhieu = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNCC = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNVgiao = new System.Windows.Forms.TextBox();
             this.txt = new System.Windows.Forms.Label();
@@ -45,6 +43,8 @@ namespace NhapXuatMT.UI
             this.txtMaPhieuNhap = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.cbNhaCungCap = new System.Windows.Forms.ComboBox();
+            this.cbNguoiLapPhieu = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvChiTietPhieuNhap)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -76,15 +76,6 @@ namespace NhapXuatMT.UI
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // txtNguoiLapPhieu
-            // 
-            this.txtNguoiLapPhieu.Location = new System.Drawing.Point(477, 70);
-            this.txtNguoiLapPhieu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNguoiLapPhieu.MaxLength = 50;
-            this.txtNguoiLapPhieu.Name = "txtNguoiLapPhieu";
-            this.txtNguoiLapPhieu.Size = new System.Drawing.Size(161, 22);
-            this.txtNguoiLapPhieu.TabIndex = 11;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -93,15 +84,6 @@ namespace NhapXuatMT.UI
             this.label4.Size = new System.Drawing.Size(111, 17);
             this.label4.TabIndex = 10;
             this.label4.Text = "Người lập phiếu:";
-            // 
-            // txtNCC
-            // 
-            this.txtNCC.Location = new System.Drawing.Point(477, 42);
-            this.txtNCC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNCC.MaxLength = 50;
-            this.txtNCC.Name = "txtNCC";
-            this.txtNCC.Size = new System.Drawing.Size(161, 22);
-            this.txtNCC.TabIndex = 9;
             // 
             // label3
             // 
@@ -185,13 +167,13 @@ namespace NhapXuatMT.UI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbNguoiLapPhieu);
+            this.panel1.Controls.Add(this.cbNhaCungCap);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.dtpkNgayDuTru);
             this.panel1.Controls.Add(this.dtpkNgayNhap);
             this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Controls.Add(this.txtNguoiLapPhieu);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtNCC);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtNVgiao);
             this.panel1.Controls.Add(this.label2);
@@ -218,6 +200,22 @@ namespace NhapXuatMT.UI
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // cbNhaCungCap
+            // 
+            this.cbNhaCungCap.FormattingEnabled = true;
+            this.cbNhaCungCap.Location = new System.Drawing.Point(477, 41);
+            this.cbNhaCungCap.Name = "cbNhaCungCap";
+            this.cbNhaCungCap.Size = new System.Drawing.Size(161, 24);
+            this.cbNhaCungCap.TabIndex = 16;
+            // 
+            // cbNguoiLapPhieu
+            // 
+            this.cbNguoiLapPhieu.FormattingEnabled = true;
+            this.cbNguoiLapPhieu.Location = new System.Drawing.Point(477, 71);
+            this.cbNguoiLapPhieu.Name = "cbNguoiLapPhieu";
+            this.cbNguoiLapPhieu.Size = new System.Drawing.Size(161, 24);
+            this.cbNguoiLapPhieu.TabIndex = 17;
+            // 
             // frmPhieuNhapChiTiet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -225,7 +223,7 @@ namespace NhapXuatMT.UI
             this.ClientSize = new System.Drawing.Size(1413, 681);
             this.Controls.Add(this.dgrvChiTietPhieuNhap);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPhieuNhapChiTiet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmPhieuNhapChiTiet";
@@ -241,9 +239,7 @@ namespace NhapXuatMT.UI
         private System.Windows.Forms.DateTimePicker dtpkNgayDuTru;
         private System.Windows.Forms.DateTimePicker dtpkNgayNhap;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.TextBox txtNguoiLapPhieu;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNCC;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNVgiao;
         private System.Windows.Forms.Label txt;
@@ -254,5 +250,7 @@ namespace NhapXuatMT.UI
         private System.Windows.Forms.Label txtMaPhieuNhap;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ComboBox cbNguoiLapPhieu;
+        private System.Windows.Forms.ComboBox cbNhaCungCap;
     }
 }

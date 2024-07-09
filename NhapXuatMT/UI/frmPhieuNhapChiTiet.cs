@@ -13,6 +13,8 @@ namespace NhapXuatMT.UI
     public partial class frmPhieuNhapChiTiet : Form
     {
         public bool isFlagDataCSV = bool.Parse(ConfigurationManager.AppSettings["IsFlagDataCSV"]);
+        public static string link = @"Data Source=LAPTOP-LVS9DHPM\SQLEXPRESS;Initial Catalog=NHAPXUATMAYTINH;Integrated Security=True";
+
 
         public bool IsFlagDataCSV { get; set; } = true;
 
@@ -79,8 +81,8 @@ namespace NhapXuatMT.UI
             dtpkNgayNhap.Value = phieuNhap.NGAYNHAP ?? DateTime.Now;
             dtpkNgayDuTru.Value = phieuNhap.NGAYDUTRU ?? DateTime.Now;
             txtNVgiao.Text = phieuNhap.TENNHANVIENGIAO;
-            txtNCC.Text = phieuNhap.TENNHACUNGCAP;
-            txtNguoiLapPhieu.Text = phieuNhap.NGUOILAPPHIEU;
+            cbNhaCungCap.Text = phieuNhap.TENNHACUNGCAP;
+            cbNguoiLapPhieu.Text = phieuNhap.NGUOILAPPHIEU;
 
             ////
             if (IDPHIEUNHAP > 0)
@@ -91,6 +93,8 @@ namespace NhapXuatMT.UI
                 cHITIETPHIEUNHAPs = new List<CHITIETPHIEUNHAP>();
 
             dgrvChiTietPhieuNhap.DataSource = cHITIETPHIEUNHAPs;
+
+            LoadCB();
 
         }
 
@@ -113,8 +117,8 @@ namespace NhapXuatMT.UI
             phieuNhap.NGAYNHAP = dtpkNgayNhap.Value;
             phieuNhap.NGAYDUTRU = dtpkNgayDuTru.Value;
             phieuNhap.TENNHANVIENGIAO = txtNVgiao.Text;
-            phieuNhap.TENNHACUNGCAP = txtNCC.Text;
-            phieuNhap.NGUOILAPPHIEU = txtNguoiLapPhieu.Text;
+            phieuNhap.TENNHACUNGCAP = cbNhaCungCap.Text;
+            phieuNhap.NGUOILAPPHIEU = cbNguoiLapPhieu.Text;
 
             if(IDPHIEUNHAP > 0)
             {
@@ -142,6 +146,40 @@ namespace NhapXuatMT.UI
             this.DialogResult = DialogResult.OK;
         }
 
+        public void LoadCB()
+        {
+            using (SqlConnection connection = new SqlConnection(link))
+            {
+                connection.Open();
+                string sql = "select TenNhaCungCap from NhaCungCap";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string tenNhaCungCap = reader.GetString(0);
+                    cbNhaCungCap.Items.Add(tenNhaCungCap);
+                }
+                reader.Close();
+
+                //using (SqlConnection connections = new SqlConnection(link))
+                //{
+               
+                string sqls = "select TenNguoiLapPhieu from NguoiLapPhieu";
+                    SqlCommand commands = new SqlCommand(sqls, connection);
+                    SqlDataReader readers = commands.ExecuteReader();
+                    while (readers.Read())
+                    {
+                        string tenNguoiLap = readers.GetString(0);
+                        cbNguoiLapPhieu.Items.Add(tenNguoiLap);
+                    }
+                    readers.Close();
+
+                }
+            
+
+
+            
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
