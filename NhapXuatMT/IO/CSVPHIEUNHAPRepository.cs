@@ -4,6 +4,7 @@ using NhapXuatMT.Data;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace NhapXuatMT.IO
@@ -32,13 +33,13 @@ namespace NhapXuatMT.IO
             }
 
             var phieuNhaps = GetAll();
-            foreach (PHIEUNHAP phieuNhap in phieuNhaps)
+            var phieuNhapsToRemove = phieuNhaps.Where(pn => pn.IDPHIEUNHAP == IDPHIEUNHAP).ToList();
+
+            foreach (PHIEUNHAP phieuNhap in phieuNhapsToRemove)
             {
-                if (IDPHIEUNHAP == phieuNhap.IDPHIEUNHAP)
-                {
-                    phieuNhaps.Remove(phieuNhap);
-                }
+                phieuNhaps.Remove(phieuNhap);
             }
+
             File.Delete(fileName);
             using (var fs = File.Open(fileName, FileMode.Append))
             {
@@ -55,6 +56,37 @@ namespace NhapXuatMT.IO
                 }
             }
             return true;
+
+            //var isExistFile = File.Exists(fileName);
+            //if (!isExistFile)
+            //{
+            //    return false;
+            //}
+
+            //var phieuNhaps = GetAll();
+            //foreach (PHIEUNHAP phieuNhap in phieuNhaps)
+            //{
+            //    if (IDPHIEUNHAP == phieuNhap.IDPHIEUNHAP)
+            //    {
+            //        phieuNhaps.Remove(phieuNhap);
+            //    }
+            //}
+            //File.Delete(fileName);
+            //using (var fs = File.Open(fileName, FileMode.Append))
+            //{
+            //    using (var writer = new StreamWriter(fs, Encoding.UTF8))
+            //    using (var csv = new CsvWriter(writer, configuration))
+            //    {
+            //        csv.WriteHeader(typeof(PHIEUNHAP));
+
+            //        foreach (PHIEUNHAP phieuNhap in phieuNhaps)
+            //        {
+            //            csv.NextRecord();
+            //            csv.WriteRecord(phieuNhap);
+            //        }
+            //    }
+            //}
+            //return true;
         }
 
         public bool Edit(PHIEUNHAP item)

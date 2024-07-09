@@ -9,8 +9,8 @@ namespace NhapXuatMT.IO
 {
     public class CHITIETPHIEUNHAPRepository : ICHITIETPHIEUNHAPRepository
     {
-        private Model1 db { get; set; }
-        public CHITIETPHIEUNHAPRepository(Model1 db)
+        private Model1_db db { get; set; }
+        public CHITIETPHIEUNHAPRepository(Model1_db db)
         {
             this.db = db;
         }

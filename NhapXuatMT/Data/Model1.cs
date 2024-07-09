@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace NhapXuatMT.Data
 {
-    public partial class Model1 : DbContext
+    public partial class Model1_db : DbContext
     {
-        public Model1()
+        public Model1_db()
             : base("name=Model1")
         {
         }

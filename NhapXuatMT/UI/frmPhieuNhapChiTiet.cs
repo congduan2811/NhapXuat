@@ -3,29 +3,65 @@ using NhapXuatMT.Data;
 using NhapXuatMT.IO;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Forms;
+using CsvHelper;
+using System.Configuration;
 
 namespace NhapXuatMT.UI
 {
     public partial class frmPhieuNhapChiTiet : Form
     {
+        public bool isFlagDataCSV = bool.Parse(ConfigurationManager.AppSettings["IsFlagDataCSV"]);
+
+        public bool IsFlagDataCSV { get; set; } = true;
+
+
         private int IDPHIEUNHAP { get; set; }
         private IPHIEUNHAPRepository _PHIEUNHAPRepository { get; set; }
         private ICHITIETPHIEUNHAPRepository _CHITIETPHIEUNHAPRepository { get; set; }
         private List<CHITIETPHIEUNHAP> cHITIETPHIEUNHAPs { get; set; }
         public frmPhieuNhapChiTiet()
         {
+           
+
             InitializeComponent();
-             _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
-            _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
+
+            if (isFlagDataCSV)
+            {
+
+                _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
+                _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
+            }
+            else
+            {
+                _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.ConnectString);
+                _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
+            }
+
+            // _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
+            //_CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
         }
 
         public frmPhieuNhapChiTiet(int IDPHIEUNHAP)
         {
+           
             InitializeComponent();
+            if (isFlagDataCSV)
+            {
+
+                _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
+                _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
+            }
+            else
+            {
+                _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.ConnectString);
+                _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
+            }
+
             this.IDPHIEUNHAP = IDPHIEUNHAP;
-            _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
-            _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
+            //_PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
+            //_CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
         }
 
         private void frmPhieuNhapChiTiet_Load(object sender, EventArgs e)
@@ -104,6 +140,21 @@ namespace NhapXuatMT.UI
             }
 
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgrvChiTietPhieuNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtNVgiao_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

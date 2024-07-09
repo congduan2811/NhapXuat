@@ -3,6 +3,8 @@ using NhapXuatMT.Data;
 using NhapXuatMT.IO;
 using System;
 using System.Windows.Forms;
+using System.Configuration;
+
 
 namespace NhapXuatMT.UI
 {
@@ -10,12 +12,26 @@ namespace NhapXuatMT.UI
     {
         private IPHIEUNHAPRepository _PHIEUNHAPRepository { get; set; }
         private ICHITIETPHIEUNHAPRepository _CHITIETPHIEUNHAPRepository { get; set; }
-
+        public bool isFlagDataCSV = bool.Parse(ConfigurationManager.AppSettings["IsFlagDataCSV"]);
         public frmPhieuNhap()
         {
-            _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
-            _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
+
             InitializeComponent();
+            if (isFlagDataCSV)
+            {
+
+                _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
+                _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
+            }
+            else
+            {
+                _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.ConnectString);
+                _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
+            }
+
+            //_PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
+            //_CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
+   
         }
 
         private void frmPhieuNhap_Load(object sender, EventArgs e)
@@ -68,6 +84,16 @@ namespace NhapXuatMT.UI
             {
                 MessageBox.Show("Không có dữ liệu để sửa");
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgrvDsNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

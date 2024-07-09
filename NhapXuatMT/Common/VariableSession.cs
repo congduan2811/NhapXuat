@@ -6,14 +6,14 @@ namespace NhapXuatMT.Common
 {
     public class VariableSession
     {
-        private static Model1 _db { get; set; }
-        public static Model1 db
+        private static Model1_db _db { get; set; }
+        public static Model1_db db
         {
             get
             {
                 if (_db == null)
                 {
-                    _db = new Model1();
+                    _db = new Model1_db();
                 }
                 return _db;
             }

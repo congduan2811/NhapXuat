@@ -9,9 +9,9 @@ namespace NhapXuatMT.IO
 {
     public class PHIEUNHAPRepository : IPHIEUNHAPRepository
     {
-        private Model1 db { get; set; }
+        private Model1_db db { get; set; }
         private CHITIETPHIEUNHAPRepository _CHITIETPHIEUNHAPRepository { get; set; }
-        public PHIEUNHAPRepository(Model1 db)
+        public PHIEUNHAPRepository(Model1_db db)
         {
             this.db = db;
             _CHITIETPHIEUNHAPRepository = new CHITIETPHIEUNHAPRepository(this.db);
