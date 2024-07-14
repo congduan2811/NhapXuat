@@ -1,6 +1,6 @@
 ﻿namespace NhapXuatMT.UI
 {
-    partial class frmThongKe
+    partial class fmThongke
     {
         /// <summary>
         /// Required designer variable.
@@ -155,7 +155,7 @@
             this.btnThongke.TabIndex = 18;
             this.btnThongke.Text = "Thống kê";
             this.btnThongke.UseVisualStyleBackColor = false;
-            this.btnThongke.Click += new System.EventHandler(this.btnThongke_Click);
+            this.btnThongke.Click += new System.EventHandler(this.btnThongke_Click_1);
             // 
             // rdbPN
             // 
@@ -173,7 +173,7 @@
             // 
             // txtTongSL
             // 
-            this.txtTongSL.Location = new System.Drawing.Point(852, 204);
+            this.txtTongSL.Location = new System.Drawing.Point(812, 204);
             this.txtTongSL.Name = "txtTongSL";
             this.txtTongSL.Size = new System.Drawing.Size(100, 34);
             this.txtTongSL.TabIndex = 49;
@@ -181,23 +181,21 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(769, 214);
+            this.label4.Location = new System.Drawing.Point(718, 209);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.Size = new System.Drawing.Size(100, 29);
             this.label4.TabIndex = 50;
-            this.label4.Text = "Tổng SL:";
+            this.label4.Text = "Tong sl:";
             // 
-            // frmThongKe
+            // fmThongke
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 484);
             this.Controls.Add(this.dgvTK);
             this.Controls.Add(this.grpthongke);
-            this.Name = "frmThongKe";
-            this.Text = "frmThongKe";
-            this.Load += new System.EventHandler(this.frmThongKe_Load);
+            this.Name = "fmThongke";
+            this.Text = "fmThongke";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTK)).EndInit();
             this.grpthongke.ResumeLayout(false);
             this.grpthongke.PerformLayout();
@@ -219,7 +217,7 @@
         private System.Windows.Forms.DateTimePicker dtp2;
         private System.Windows.Forms.Button btnThongke;
         private System.Windows.Forms.RadioButton rdbPN;
-        private System.Windows.Forms.TextBox txtTongSL;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtTongSL;
     }
 }

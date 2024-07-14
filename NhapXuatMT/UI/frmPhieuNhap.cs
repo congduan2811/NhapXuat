@@ -58,6 +58,8 @@ namespace NhapXuatMT.UI
             if (auditOrder.IDPHIEUNHAP > 0)
             {
                 _PHIEUNHAPRepository.Delete(auditOrder.IDPHIEUNHAP);
+             
+
                 frmPhieuNhap_Load(null, null);
             }
             else
@@ -98,7 +100,7 @@ namespace NhapXuatMT.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var frm = new frmThongKe();
+            var frm = new fmThongke();
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 dgrvDsNhap.DataSource = _PHIEUNHAPRepository.GetAll();

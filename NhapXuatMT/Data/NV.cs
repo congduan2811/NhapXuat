@@ -18,7 +18,7 @@ namespace NhapXuatMT.Data
         [StringLength(50)]
         public string NHACUNGCAP { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string DONVITINH { get; set; }
 
         [StringLength(50)]

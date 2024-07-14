@@ -16,7 +16,7 @@ namespace NhapXuatMT.UI
         public bool isFlagDataCSV = bool.Parse(ConfigurationManager.AppSettings["IsFlagDataCSV"]);
         private List<NV> nvList = new List<NV>();
 
-
+      
         public bool IsFlagDataCSV { get; set; } = true;
 
 
