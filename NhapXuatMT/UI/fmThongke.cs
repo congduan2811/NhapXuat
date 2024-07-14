@@ -60,19 +60,20 @@ namespace NhapXuatMT.UI
                     var statistics = _dbContext.PHIEUNHAPs
                     .Where(pn => pn.NGAYDUTRU >= ngayBatDau && pn.NGAYNHAP <= ngayKetThuc)
                     .SelectMany(pn => pn.CHITIETPHIEUNHAPs)
-                    .GroupBy(ctpn => new { ctpn.IDSANPHAM, ctpn.TENSANPHAM, ctpn.PHIEUNHAP.IDPHIEUNHAP, ctpn.PHIEUNHAP.TENNHACUNGCAP })
+                    .GroupBy(ctpn => new { ctpn.IDSANPHAM, ctpn.TENSANPHAM, ctpn.PHIEUNHAP.NGAYNHAP, ctpn.PHIEUNHAP.IDPHIEUNHAP, ctpn.PHIEUNHAP.NGUOILAPPHIEU, ctpn.PHIEUNHAP.TENNHACUNGCAP })
                     .Select(g => new
                     {
                         IDPHIEUNHAP = g.Key.IDPHIEUNHAP,
-                       
+                        IDSANPHAM = g.Key.IDSANPHAM,
                         TENSANPHAM = g.Key.TENSANPHAM,
-                        
-
                         NhaCungCap = g.Key.TENNHACUNGCAP,
                         SoLuong = g.Sum(ctpn => ctpn.SOLUONGDUTRU),
 
-                    })
-        .ToList();
+                        NguoiLapPhieu = g.Key.NGUOILAPPHIEU,
+                        NgayNhap = g.Key.NGAYNHAP,
+
+
+                    }).ToList();
 
                     dgvTK.DataSource = statistics;
                     SUM();
