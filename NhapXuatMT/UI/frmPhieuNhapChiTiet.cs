@@ -7,13 +7,14 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using CsvHelper;
 using System.Configuration;
+using System.Linq;
 
 namespace NhapXuatMT.UI
 {
     public partial class frmPhieuNhapChiTiet : Form
     {
         public bool isFlagDataCSV = bool.Parse(ConfigurationManager.AppSettings["IsFlagDataCSV"]);
-        public static string link = @"Data Source=LAPTOP-LVS9DHPM\SQLEXPRESS;Initial Catalog=NHAPXUATMAYTINH;Integrated Security=True";
+        private List<NV> nvList = new List<NV>();
 
 
         public bool IsFlagDataCSV { get; set; } = true;
@@ -25,7 +26,7 @@ namespace NhapXuatMT.UI
         private List<CHITIETPHIEUNHAP> cHITIETPHIEUNHAPs { get; set; }
         public frmPhieuNhapChiTiet()
         {
-           
+
 
             InitializeComponent();
 
@@ -37,17 +38,45 @@ namespace NhapXuatMT.UI
             }
             else
             {
-                _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.ConnectString);
-                _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
+                _PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.ConnectString);
+                _CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
             }
 
             // _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
             //_CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
         }
+        private void PopulateComboBoxes()
+        {
+
+
+            using (var context = new Model1_db())
+            {
+                nvList = context.NVs.ToList();
+            }
+
+            cbNhaCungCap.Items.Clear();
+
+
+
+            foreach (var nv in nvList)
+            {
+                cbNhaCungCap.Items.Add(nv.NHACUNGCAP);
+
+
+            }
+
+
+            cbNhaCungCap.SelectedIndex = 0;
+
+
+
+
+
+        }
 
         public frmPhieuNhapChiTiet(int IDPHIEUNHAP)
         {
-           
+
             InitializeComponent();
             if (isFlagDataCSV)
             {
@@ -57,8 +86,8 @@ namespace NhapXuatMT.UI
             }
             else
             {
-                _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.ConnectString);
-                _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
+                _PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.ConnectString);
+                _CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
             }
 
             this.IDPHIEUNHAP = IDPHIEUNHAP;
@@ -68,6 +97,8 @@ namespace NhapXuatMT.UI
 
         private void frmPhieuNhapChiTiet_Load(object sender, EventArgs e)
         {
+
+
             PHIEUNHAP phieuNhap;
             if (IDPHIEUNHAP > 0)
             {
@@ -81,8 +112,8 @@ namespace NhapXuatMT.UI
             dtpkNgayNhap.Value = phieuNhap.NGAYNHAP ?? DateTime.Now;
             dtpkNgayDuTru.Value = phieuNhap.NGAYDUTRU ?? DateTime.Now;
             txtNVgiao.Text = phieuNhap.TENNHANVIENGIAO;
-            cbNhaCungCap.Text = phieuNhap.TENNHACUNGCAP;
-            cbNguoiLapPhieu.Text = phieuNhap.NGUOILAPPHIEU;
+            cbNhaCungCap.SelectedItem = phieuNhap.TENNHACUNGCAP;
+            txtNLP.Text = phieuNhap.NGUOILAPPHIEU;
 
             ////
             if (IDPHIEUNHAP > 0)
@@ -94,7 +125,12 @@ namespace NhapXuatMT.UI
 
             dgrvChiTietPhieuNhap.DataSource = cHITIETPHIEUNHAPs;
 
-            LoadCB();
+            PopulateComboBoxes();
+
+
+
+
+            cbNhaCungCap.SelectedItem = phieuNhap.TENNHACUNGCAP;
 
         }
 
@@ -117,10 +153,10 @@ namespace NhapXuatMT.UI
             phieuNhap.NGAYNHAP = dtpkNgayNhap.Value;
             phieuNhap.NGAYDUTRU = dtpkNgayDuTru.Value;
             phieuNhap.TENNHANVIENGIAO = txtNVgiao.Text;
-            phieuNhap.TENNHACUNGCAP = cbNhaCungCap.Text;
-            phieuNhap.NGUOILAPPHIEU = cbNguoiLapPhieu.Text;
+            phieuNhap.TENNHACUNGCAP = cbNhaCungCap.SelectedItem.ToString();
+            phieuNhap.NGUOILAPPHIEU = txtNLP.Text;
 
-            if(IDPHIEUNHAP > 0)
+            if (IDPHIEUNHAP > 0)
             {
                 phieuNhap.IDPHIEUNHAP = IDPHIEUNHAP;
                 _PHIEUNHAPRepository.Edit(phieuNhap);
@@ -129,11 +165,11 @@ namespace NhapXuatMT.UI
             {
                 _PHIEUNHAPRepository.Insert(phieuNhap);
             }
-            
+
             foreach (var item in cHITIETPHIEUNHAPs)
             {
                 item.IDPHIEUNHAP = phieuNhap.IDPHIEUNHAP;
-                if(item.IDCHITIETPHIEUNHAP > 0)
+                if (item.IDCHITIETPHIEUNHAP > 0)
                 {
                     _CHITIETPHIEUNHAPRepository.Edit(item);
                 }
@@ -146,40 +182,7 @@ namespace NhapXuatMT.UI
             this.DialogResult = DialogResult.OK;
         }
 
-        public void LoadCB()
-        {
-            using (SqlConnection connection = new SqlConnection(link))
-            {
-                connection.Open();
-                string sql = "select TenNhaCungCap from NhaCungCap";
-                SqlCommand command = new SqlCommand(sql, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    string tenNhaCungCap = reader.GetString(0);
-                    cbNhaCungCap.Items.Add(tenNhaCungCap);
-                }
-                reader.Close();
 
-                //using (SqlConnection connections = new SqlConnection(link))
-                //{
-               
-                string sqls = "select TenNguoiLapPhieu from NguoiLapPhieu";
-                    SqlCommand commands = new SqlCommand(sqls, connection);
-                    SqlDataReader readers = commands.ExecuteReader();
-                    while (readers.Read())
-                    {
-                        string tenNguoiLap = readers.GetString(0);
-                        cbNguoiLapPhieu.Items.Add(tenNguoiLap);
-                    }
-                    readers.Close();
-
-                }
-            
-
-
-            
-        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

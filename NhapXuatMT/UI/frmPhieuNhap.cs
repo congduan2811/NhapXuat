@@ -25,12 +25,12 @@ namespace NhapXuatMT.UI
             }
             else
             {
-                _PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.ConnectString);
-                _CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
+                _PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.ConnectString);
+                _CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.ConnectString);
             }
 
-            //_PHIEUNHAPRepository = new CSVPHIEUNHAPRepository(VariableSession.Root);
-            //_CHITIETPHIEUNHAPRepository = new CSVCHITIETPHIEUNHAPRepository(VariableSession.Root);
+            //_PHIEUNHAPRepository = new SQLPHIEUNHAPRepository(VariableSession.Root);
+            //_CHITIETPHIEUNHAPRepository = new SQLCHITIETPHIEUNHAPRepository(VariableSession.Root);
    
         }
 
@@ -94,6 +94,15 @@ namespace NhapXuatMT.UI
         private void dgrvDsNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var frm = new frmThongKe();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                dgrvDsNhap.DataSource = _PHIEUNHAPRepository.GetAll();
+            }
         }
     }
 }

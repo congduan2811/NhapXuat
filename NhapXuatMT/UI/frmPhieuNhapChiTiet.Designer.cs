@@ -42,9 +42,9 @@ namespace NhapXuatMT.UI
             this.txtIDPhieuNhap = new System.Windows.Forms.TextBox();
             this.txtMaPhieuNhap = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
             this.cbNhaCungCap = new System.Windows.Forms.ComboBox();
-            this.cbNguoiLapPhieu = new System.Windows.Forms.ComboBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtNLP = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrvChiTietPhieuNhap)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -167,7 +167,7 @@ namespace NhapXuatMT.UI
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.cbNguoiLapPhieu);
+            this.panel1.Controls.Add(this.txtNLP);
             this.panel1.Controls.Add(this.cbNhaCungCap);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.dtpkNgayDuTru);
@@ -189,6 +189,14 @@ namespace NhapXuatMT.UI
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // cbNhaCungCap
+            // 
+            this.cbNhaCungCap.FormattingEnabled = true;
+            this.cbNhaCungCap.Location = new System.Drawing.Point(477, 41);
+            this.cbNhaCungCap.Name = "cbNhaCungCap";
+            this.cbNhaCungCap.Size = new System.Drawing.Size(161, 24);
+            this.cbNhaCungCap.TabIndex = 16;
+            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(1333, 79);
@@ -200,21 +208,12 @@ namespace NhapXuatMT.UI
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // cbNhaCungCap
+            // txtNLP
             // 
-            this.cbNhaCungCap.FormattingEnabled = true;
-            this.cbNhaCungCap.Location = new System.Drawing.Point(477, 41);
-            this.cbNhaCungCap.Name = "cbNhaCungCap";
-            this.cbNhaCungCap.Size = new System.Drawing.Size(161, 24);
-            this.cbNhaCungCap.TabIndex = 16;
-            // 
-            // cbNguoiLapPhieu
-            // 
-            this.cbNguoiLapPhieu.FormattingEnabled = true;
-            this.cbNguoiLapPhieu.Location = new System.Drawing.Point(477, 71);
-            this.cbNguoiLapPhieu.Name = "cbNguoiLapPhieu";
-            this.cbNguoiLapPhieu.Size = new System.Drawing.Size(161, 24);
-            this.cbNguoiLapPhieu.TabIndex = 17;
+            this.txtNLP.Location = new System.Drawing.Point(477, 70);
+            this.txtNLP.Name = "txtNLP";
+            this.txtNLP.Size = new System.Drawing.Size(161, 22);
+            this.txtNLP.TabIndex = 17;
             // 
             // frmPhieuNhapChiTiet
             // 
@@ -250,7 +249,7 @@ namespace NhapXuatMT.UI
         private System.Windows.Forms.Label txtMaPhieuNhap;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ComboBox cbNguoiLapPhieu;
         private System.Windows.Forms.ComboBox cbNhaCungCap;
+        private System.Windows.Forms.TextBox txtNLP;
     }
 }

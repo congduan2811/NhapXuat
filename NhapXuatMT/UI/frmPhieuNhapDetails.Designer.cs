@@ -35,13 +35,13 @@ namespace NhapXuatMT.UI
             this.label5 = new System.Windows.Forms.Label();
             this.txtSLDT = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtDVT = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnThemCTPN = new System.Windows.Forms.Button();
-            this.txtIDSP = new System.Windows.Forms.TextBox();
             this.cbTenSanPham = new System.Windows.Forms.ComboBox();
+            this.cbID = new System.Windows.Forms.ComboBox();
+            this.txtDVT = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtIDCTPN
@@ -99,15 +99,6 @@ namespace NhapXuatMT.UI
             this.label6.TabIndex = 23;
             this.label6.Text = "Số lượng dự trù:";
             // 
-            // txtDVT
-            // 
-            this.txtDVT.Location = new System.Drawing.Point(220, 126);
-            this.txtDVT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDVT.MaxLength = 50;
-            this.txtDVT.Name = "txtDVT";
-            this.txtDVT.Size = new System.Drawing.Size(267, 22);
-            this.txtDVT.TabIndex = 4;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -146,15 +137,6 @@ namespace NhapXuatMT.UI
             this.btnThemCTPN.UseVisualStyleBackColor = true;
             this.btnThemCTPN.Click += new System.EventHandler(this.btnThemCTPN_Click);
             // 
-            // txtIDSP
-            // 
-            this.txtIDSP.Location = new System.Drawing.Point(220, 90);
-            this.txtIDSP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtIDSP.MaxLength = 9;
-            this.txtIDSP.Name = "txtIDSP";
-            this.txtIDSP.Size = new System.Drawing.Size(267, 22);
-            this.txtIDSP.TabIndex = 3;
-            // 
             // cbTenSanPham
             // 
             this.cbTenSanPham.FormattingEnabled = true;
@@ -162,26 +144,45 @@ namespace NhapXuatMT.UI
             this.cbTenSanPham.Name = "cbTenSanPham";
             this.cbTenSanPham.Size = new System.Drawing.Size(267, 24);
             this.cbTenSanPham.TabIndex = 30;
+            this.cbTenSanPham.SelectedIndexChanged += new System.EventHandler(this.cbTenSanPham_SelectedIndexChanged);
+            // 
+            // cbID
+            // 
+            this.cbID.FormattingEnabled = true;
+            this.cbID.Location = new System.Drawing.Point(220, 89);
+            this.cbID.Name = "cbID";
+            this.cbID.Size = new System.Drawing.Size(267, 24);
+            this.cbID.TabIndex = 31;
+            this.cbID.SelectedIndexChanged += new System.EventHandler(this.cbID_SelectedIndexChanged);
+            // 
+            // txtDVT
+            // 
+            this.txtDVT.Location = new System.Drawing.Point(220, 126);
+            this.txtDVT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDVT.MaxLength = 9;
+            this.txtDVT.Name = "txtDVT";
+            this.txtDVT.Size = new System.Drawing.Size(267, 22);
+            this.txtDVT.TabIndex = 32;
             // 
             // frmPhieuNhapDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 343);
+            this.Controls.Add(this.txtDVT);
+            this.Controls.Add(this.cbID);
             this.Controls.Add(this.cbTenSanPham);
             this.Controls.Add(this.btnThemCTPN);
             this.Controls.Add(this.txtIDCTPN);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtIDSP);
             this.Controls.Add(this.txtSLTT);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtSLDT);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtDVT);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPhieuNhapDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmPhieuNhapDetails";
@@ -199,12 +200,12 @@ namespace NhapXuatMT.UI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSLDT;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDVT;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnThemCTPN;
-        private System.Windows.Forms.TextBox txtIDSP;
         private System.Windows.Forms.ComboBox cbTenSanPham;
+        private System.Windows.Forms.ComboBox cbID;
+        private System.Windows.Forms.TextBox txtDVT;
     }
 }

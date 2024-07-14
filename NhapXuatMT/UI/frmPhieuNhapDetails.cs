@@ -14,11 +14,57 @@ namespace NhapXuatMT.UI
 {
     public partial class frmPhieuNhapDetails : Form
     {
-        public static string link = @"Data Source=LAPTOP-LVS9DHPM\SQLEXPRESS;Initial Catalog=NHAPXUATMAYTINH;Integrated Security=True";
+        
+        private List<NV> sanPhamList = new List<NV>();
+
+      
+        private void PopulateComboBoxes()
+        {
+            try
+            {
+
+            
+            using (var context = new Model1_db())
+            {
+                sanPhamList = context.NVs.ToList();
+            }
+            cbID.Items.Clear();
+            cbTenSanPham.Items.Clear();
+                txtDVT.Text = "";
+
+
+            foreach (var sanPham in sanPhamList)
+            {
+                cbID.Items.Add(sanPham.IDSANPHAM);
+                cbTenSanPham.Items.Add(sanPham.TENSANPHAM);
+                txtDVT.Text=(sanPham.DONVITINH);
+            }
+
+            cbID.SelectedIndex = 0;
+            cbTenSanPham.SelectedIndex = 0;
+                txtDVT.Text = "";
+        }
+
+
+            catch (Exception ex)
+            {
+               
+                MessageBox.Show("An error occurred while populating the ComboBoxes: " + ex.Message);
+            }
+        }
+
+      
+
+
+
+
+
+
 
         public CHITIETPHIEUNHAP cHITIETPHIEUNHAP { get; set; }
         public frmPhieuNhapDetails()
         {
+       
             InitializeComponent();
             cHITIETPHIEUNHAP = new CHITIETPHIEUNHAP();
         }
@@ -31,9 +77,9 @@ namespace NhapXuatMT.UI
 
         private void btnThemCTPN_Click(object sender, EventArgs e)
         {
-            cHITIETPHIEUNHAP.TENSANPHAM = cbTenSanPham.Text;
-            cHITIETPHIEUNHAP.IDSANPHAM = Convert.ToInt32(txtIDSP.Text);
-            cHITIETPHIEUNHAP.DONVITINH = txtDVT.Text;
+            cHITIETPHIEUNHAP.TENSANPHAM = cbTenSanPham.SelectedItem.ToString();
+            cHITIETPHIEUNHAP.IDSANPHAM = Convert.ToInt32(cbID.SelectedItem.ToString());
+            cHITIETPHIEUNHAP.DONVITINH = txtDVT.Text.ToString();
             cHITIETPHIEUNHAP.SOLUONGDUTRU = Convert.ToInt32(txtSLDT.Text);
             cHITIETPHIEUNHAP.SOLUONGTHUCTE = Convert.ToInt32(txtSLTT.Text);
 
@@ -45,51 +91,35 @@ namespace NhapXuatMT.UI
             txtIDCTPN.Text = (cHITIETPHIEUNHAP.IDPHIEUNHAP??0).ToString();
 
 
-            LoadCB();
+
+            PopulateComboBoxes();
         }
 
-        public void LoadCB()
+     
+
+        private void txtDVT_TextChanged(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(link))
-            {
-                connection.Open();
-                string sql = "select ID, TenSanPham, DonViTinh from SanPham  ";
-                SqlCommand command = new SqlCommand(sql, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    cbTenSanPham.Items.Add(reader["TenSanPham"]);
-                       
 
-
-                }
-                cbTenSanPham.SelectedIndexChanged += (sender, e) =>
-                {
-
-                    int selectedIndex = cbTenSanPham.SelectedIndex;
-                    if(selectedIndex >=0 && selectedIndex < cbTenSanPham.Items.Count)
-                    {
-                        txtIDSP.Text = selectedIndex.ToString();
-                        using (SqlConnection connections = new SqlConnection(link))
-                        {
-                            connections.Open();
-                            string sqls = "SELECT DonViTinh FROM SanPham WHERE TenSanPham = @SelectedProduct";
-                            SqlCommand commands = new SqlCommand(sqls, connections);
-                            commands.Parameters.AddWithValue("@SelectedProduct", cbTenSanPham.SelectedItem.ToString());
-
-                            SqlDataReader readers = commands.ExecuteReader();
-                            if (readers.Read())
-                            {
-                                txtDVT.Text = readers["DonViTinh"].ToString();
-                            }
-                            readers.Close();
-
-                        }
-                      
-                    }
-                };
-            }
         }
 
+        private void cbID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedID = (int)cbID.SelectedItem;
+
+         
+            NV selectedSanPham = sanPhamList.Find(sp => sp.IDSANPHAM == selectedID);
+
+          
+            cbTenSanPham.SelectedItem = selectedSanPham.TENSANPHAM;
+            txtDVT.Text = selectedSanPham.DONVITINH;
+        }
+
+        private void cbTenSanPham_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedTenSP = cbTenSanPham.SelectedItem.ToString();
+            NV selectedID = sanPhamList.Find(sp => sp.TENSANPHAM == selectedTenSP);
+            cbID.SelectedItem = selectedID.IDSANPHAM;
+            txtDVT.Text = selectedID.DONVITINH;
+        }
     }
 }
